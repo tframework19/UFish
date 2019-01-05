@@ -1036,6 +1036,9 @@ moves_loop: // When in check, search starts from here
 
           if (!captureOrPromotion)
           {
+			
+              //rule50 > 14 reduction
+              r+=ONE_PLY*(pos.rule50_count()>14);			  
               // Decrease reduction for exact PV nodes (~0 Elo)
               if (pvExact)
                   r -= ONE_PLY;
