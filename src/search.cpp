@@ -953,6 +953,8 @@ moves_loop: // When in check, search starts from here
 
           if (value < reducedBeta)
               extension = ONE_PLY;
+		   else if (cutNode && ttValue - 2 * depth / ONE_PLY > beta)
+              return beta;
       }
       else if (    givesCheck // Check extension (~2 Elo)
                &&  pos.see_ge(move))
